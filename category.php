@@ -1,6 +1,12 @@
 <?php require_once "dbconfig.php"; ?>
 <?php include 'header.php'; ?>
-<?php include 'header-main.php'; ?>
+<?php include 'header-main.php';
+
+
+$cate = $_GET['category']
+
+
+?>
 
 
 
@@ -45,6 +51,39 @@
                             </div> <!-- card-body.// -->
                         </div>
                     </article> <!-- filter-group  .// -->
+                    <!-- <article class="filter-group">
+						<header class="card-header">
+							<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
+								<i class="icon-control fa fa-chevron-down"></i>
+								<h6 class="title">Sizes </h6>
+							</a>
+						</header>
+						<div class="filter-content collapse show" id="collapse_4" style="">
+							<div class="card-body">
+								<label class="checkbox-btn">
+									<input type="checkbox">
+									<span class="btn btn-light"> XS </span>
+								</label>
+
+								<label class="checkbox-btn">
+									<input type="checkbox">
+									<span class="btn btn-light"> SM </span>
+								</label>
+
+								<label class="checkbox-btn">
+									<input type="checkbox">
+									<span class="btn btn-light"> LG </span>
+								</label>
+
+								<label class="checkbox-btn">
+									<input type="checkbox">
+									<span class="btn btn-light"> XXL </span>
+								</label>
+							</div><!-- card-body.// -->
+                    <!-- </div>
+					</article>  -->
+
+
                 </div> <!-- card.// -->
 
             </aside> <!-- col.// -->
@@ -59,17 +98,7 @@
 
                 <div class="row">
                     <?php
-
-							$limit = 3;
-
-							if (isset($_GET['page'])) {
-								$page = $_GET['page'];
-							} else {
-								$page = 1;
-							}
-							$offset = ($page - 1) * $limit;
-							$record_index = ($page - 1) * $limit;
-							$product_query = "SELECT * FROM `products` LIMIT $record_index, $limit ";
+							$product_query = "SELECT * FROM `products` WHERE category_slug = '$cate'";
 							$product_result = mysqli_query($cid, $product_query) or die("Product Query Failed.");
 
 							if (mysqli_num_rows($product_result) > 0) {
@@ -77,7 +106,6 @@
 
 
 							?>
-
                     <div class="col-md-4">
                         <form action="cart.php?action=add&id=<?php echo $row["id"]; ?>" method="POST">
                             <figure class="card card-product-grid">
@@ -95,77 +123,45 @@
                                             <!-- <del class="price-old">$1980</del> -->
                                         </div> <!-- price-wrap.// -->
                                     </div>
-                                    <!-- col.// -->
                                     <div class="col">
                                         <p class="card-text">Quantity:
                                             <input type="number" min="1" max="25" name="quantity" class="form-control"
                                                 value="1" style="width: 60px;">
                                         </p>
-                                    </div> <!-- col.// -->
-                                    <br>
-
-                                    <input type="hidden" name="hidden_product_name"
-                                        value="<?php echo $row["product_name"]; ?>">
-                                    <input type="hidden" name="hidden_img" value="<?php echo $row["img"]; ?>">
-                                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
-                                    <input type="hidden" name="hidden_category_slug"
-                                        value="<?php echo $row["categoty_slug"]; ?>">
-                                    <input type="submit" name="add" class="btn btn-block btn-success"
-                                        value="Added to cart">
-                                </figcaption>
-                            </figure>
-                        </form>
                     </div> <!-- col.// -->
+                    <br>
 
-                    <?php  }
+                    <input type="hidden" name="hidden_product_name" value="<?php echo $row["product_name"]; ?>">
+                    <input type="hidden" name="hidden_img" value="<?php echo $row["img"]; ?>">
+                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
+                    <input type="hidden" name="hidden_category_slug" value="<?php echo $row["categoty_slug"]; ?>">
+                    <input type="submit" name="add" class="btn btn-block btn-success" value="Added to cart">
+                    </figcaption>
+                    </figure>
+                    </form>
+                </div> <!-- col.// -->
+                <?php  }
 			}else{
-				echo "<h3>NO DATA FOUND.</h3>";
+				echo "<center><h3>NO DATA FOUND.</h3></center>";
 			} ?>
 
 
-                </div> <!-- row end.// -->
+        </div> <!-- row end.// -->
 
 
-                <div style="text-align:center" class="col-lg-12">
+        <nav class="mt-4" aria-label="Page navigation sample">
+            <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
 
+        </main> <!-- col.// -->
 
-				<?php
-
-					$dep_query1 = "SELECT * FROM `products`";
-					$result1 = mysqli_query($cid, $dep_query1) or die("query failed..");
-
-					if (mysqli_num_rows($result1) > 0) {
-
-						$total_records = mysqli_num_rows($result1);
-						$total_pages = ceil($total_records / $limit);
-						echo '  <ul class="pagination">';
-						if ($page > 1) {
-							echo '<li class="paginate_button page-item previous" id="zero_config_previous"><a href="store.php?page=' . ($page - 1) . '" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>';
-						}
-						for ($i = 1; $i < $total_pages; $i++) {
-							if ($i == $page) {
-								$active = "active";
-							} else {
-								$active = "";
-							}
-							echo '<li class="paginate_button page-item ' . $active . '"><a href="store.php?page=' . $i . '" aria-controls="zero_config"  class="page-link">' . $i . '</a></li>';
-						}
-						if ($total_pages > $page) {
-							echo '<li class="paginate_button page-item next" id="zero_config_next"><a href="store.php?page=' . ($page + 1) . '" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>';
-						}
-						echo '</ul>';
-
-					?>
-
-					<?php } ?>
-                                                            
-                                                              
-
-                </div>
-
-            </main> <!-- col.// -->
-
-        </div>
+    </div>
 
     </div> <!-- container .//  -->
 </section>
@@ -174,11 +170,6 @@
 <!-- ========================= FOOTER ========================= -->
 <?php include 'footer.php'; ?>
 <!-- ========================= FOOTER END // ========================= -->
-
-
-<script>
-$("input[type='number']").inputSpinner()
-</script>
 
 
 
