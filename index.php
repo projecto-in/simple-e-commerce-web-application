@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="intro-banner-wrap">
-            <img src="images/banners/1.jpg" class="img-fluid rounded">
+            <img src="images/banners/jiomart.png" class="img-fluid rounded">
         </div>
 
     </div> <!-- container //  -->
