@@ -51,9 +51,9 @@
             </div> <!-- col.// -->
             <a href="store.php" class="btn btn-outline-primary">Store</a>
             <div class="col-lg  col-md-6 col-sm-12 col">
-                <form action="#" class="search">
+                <form action="search-result.php" class="search">
                     <div class="input-group w-100">
-                        <input type="text" class="form-control" style="width:60%;" placeholder="Search">
+                        <input type="text" name="search" class="form-control" style="width:60%;" placeholder="Search">
 
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">
