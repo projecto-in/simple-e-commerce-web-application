@@ -1,7 +1,6 @@
 <?php require_once "dbconfig.php"; ?>
 <?php include 'header.php'; ?>
 <?php include 'header-main.php';
-
 if (isset($_POST["add"])) {
     if (isset($_SESSION["cart"])) {
       $item_array_id = array_column($_SESSION["cart"], "id");
@@ -56,14 +55,10 @@ if (isset($_POST["add"])) {
       }
     }
   }
-
-
 ?>
-
-
 <section class="section-content padding-y bg">
 
-<?php if (!empty($_SESSION["cart"])) { ?>
+    <?php if (!empty($_SESSION["cart"])) { ?>
 
     <div class="container">
 
@@ -78,12 +73,12 @@ if (isset($_POST["add"])) {
                                 <th scope="col">Product</th>
                                 <th scope="col" width="120">Quantity</th>
                                 <th scope="col" width="120">Price</th>
-								<th scope="col" width="120">Total</th>
+                                <th scope="col" width="120">Total</th>
 
                                 <th scope="col" class="text-right" width="200"> </th>
                             </tr>
                         </thead>
-							<?php
+                        <?php
 
 							$total = 0;
 							foreach ($_SESSION["cart"] as $keys => $values) {
@@ -92,9 +87,11 @@ if (isset($_POST["add"])) {
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside"><img src="./images/items/<?php echo $values["img"] ?>" class="img-sm"></div>
+                                        <div class="aside"><img src="./images/items/<?php echo $values["img"] ?>"
+                                                class="img-sm"></div>
                                         <figcaption class="info">
-                                            <a href="#" class="title text-dark"><?php echo $values["product_name"]; ?></a>
+                                            <a href="#"
+                                                class="title text-dark"><?php echo $values["product_name"]; ?></a>
                                             <!-- <p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p> -->
                                         </figcaption>
                                     </figure>
@@ -109,17 +106,19 @@ if (isset($_POST["add"])) {
                                         <!-- <small class="text-muted"> $315.20 each </small> -->
                                     </div> <!-- price-wrap .// -->
                                 </td>
-								<td>
+                                <td>
                                     <div class="price-wrap">
-                                        <var class="price"><?php echo number_format($values["quantity"] * $values["price"], 2); ?></var>
+                                        <var
+                                            class="price"><?php echo number_format($values["quantity"] * $values["price"], 2); ?></var>
                                         <!-- <small class="text-muted"> $315.20 each </small> -->
                                     </div> <!-- price-wrap .// -->
                                 </td>
                                 <td class="text-right">
-                                    <a href="cart.php?action=delete&id=<?php echo $values["id"]; ?>" class="btn btn-danger"> Remove</a>
+                                    <a href="cart.php?action=delete&id=<?php echo $values["id"]; ?>"
+                                        class="btn btn-danger"> Remove</a>
                                 </td>
                             </tr>
-							<?php 
+                            <?php 
 							$total = $total + ($values["quantity"] * $values["price"]);
 							}
 							?>
@@ -136,16 +135,16 @@ if (isset($_POST["add"])) {
                             <dt>Grand Total :</dt>
                             <dd class="text-right"><?php echo number_format($total); ?></dd>
                         </dl>
-                        
+
                         <hr>
                         <p class="text-center mb-3">
                             <img src="./images/misc/payments.png" height="26">
                         </p>
-						
-                        
+
+
                         <a href="store.php" class="btn btn-success btn-block">Continue Shopping</a>
-						<a href="cart.php?action=empty" class="btn btn-danger btn-block"> Empty Cart </a>
-						<a href="order-complete.php" class="btn btn-primary btn-block"> Checkout </a>
+                        <a href="cart.php?action=empty" class="btn btn-danger btn-block"> Empty Cart </a>
+                        <a href="order-complete.php" class="btn btn-primary btn-block"> Checkout </a>
                     </div> <!-- card-body.// -->
                 </div> <!-- card.// -->
 
@@ -157,20 +156,20 @@ if (isset($_POST["add"])) {
 
     </div> <!-- container .//  -->
 
-	<?php }
+    <?php }
 	
 	if (empty($_SESSION["cart"])) {
   ?>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Your Shopping Cart</h1>
-        <p>Oops! empty cart. Go back and <a href="index.php">order now.</a></p>
+        <div class="jumbotron">
+            <h1>Your Shopping Cart</h1>
+            <p>Oops! empty cart. Go back and <a href="index.php">order now.</a></p>
 
-      </div>
+        </div>
 
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <?php
+    <?php
   }
   ?>
 </section>

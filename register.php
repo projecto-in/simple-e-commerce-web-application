@@ -21,8 +21,8 @@
 				if ($ab == 1) {
 					echo "<div class='alert alert-danger'>Email Already Exist</div>";
 				} else {
-					$n = iud("INSERT INTO `register`(`name`, `email`, `password`,`first_name`,`last_name`)
-         VALUES ('$name', '$email', '$password','$fname','$lname' )");
+					$n = iud("INSERT INTO `register`(`name`, `email`, `password`,`first_name`,`last_name`,`address`)
+         VALUES ('$name', '$email', '$password','$fname','$lname', '$address' )");
 					if ($n == 1) {
 						echo "<div class='alert alert-success'>Successful</div>";
 						
@@ -37,7 +37,7 @@
 				<div class="form-group">
 					<label>Username</label>
 					<input type="text" name="name" class="form-control" placeholder="">
-					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div> <!-- form-group end.// -->
 				<div class="form-row">
 					<div class="col form-group">
@@ -57,10 +57,15 @@
 				<div class="form-group">
 					<label>Password</label>
 					<input type="password" name="password" class="form-control" placeholder="">
-					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<small class="form-text text-muted">We'll never share your password with anyone else.</small>
 				</div> <!-- form-group end.// -->
+				
 
+				<div class="form-group">
+				<label>Address</label>
+				<textarea name="address" class="form-control" id="" cols="30" rows="3"></textarea>
 
+				</div>
 				<div class="form-group">
 					<button type="submit" name="signup" class="btn btn-primary btn-block"> Register </button>
 				</div> <!-- form-group// -->

@@ -2,14 +2,9 @@
 <?php include 'header.php'; ?>
 <?php include 'header-main.php';
 
-
 $cate = $_GET['category']
 
-
 ?>
-
-
-
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">

@@ -1,8 +1,6 @@
 <?php require_once "dbconfig.php"; ?>
 <?php include 'header.php'; ?>
 <?php include 'header-main.php'; ?>
-
-
 <!-- ========================= SECTION MAIN ========================= -->
 <section class="section-intro padding-y-sm">
     <div class="container">
@@ -23,8 +21,6 @@
             <a href="store.php" class="btn btn-outline-primary float-right">See all</a>
             <h3 class="section-title">Popular products</h3>
         </header><!-- sect-heading -->
-
-
         <div class="row">
             <?php
 			$product_query = "SELECT * FROM `products` ";
@@ -32,10 +28,7 @@
 
 			if (mysqli_num_rows($product_result) > 0) {
 				while ($row = mysqli_fetch_assoc($product_result)) {
-
-
 			?>
-
             <div class="col-md-3">
                 <form action="cart.php?action=add&id=<?php echo $row["id"]; ?>" method="POST">
                     <div class="card card-product-grid">
@@ -56,10 +49,6 @@
         </div><!-- container // -->
 </section>
 <!-- ========================= SECTION  END// ========================= -->
-
-
-
-
 <!-- ========================= FOOTER ========================= -->
 <footer class="section-footer border-top">
     <div class="container">
@@ -81,7 +70,5 @@
     </div><!-- //container -->
 </footer>
 <!-- ========================= FOOTER END // ========================= -->
-
 </body>
-
 </html>
