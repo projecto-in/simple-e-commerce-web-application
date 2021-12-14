@@ -57,8 +57,8 @@
                 <p class="text-muted"> &copy 2021 Jiomart </p>
             </div>
             <div class="col-md-8 text-md-center">
-                <span class="px-2">info@pixsellz.io</span>
-                <span class="px-2">+919-002-0000</span>
+                <span class="px-2">info@jiomart.xyz</span>
+                <span class="px-2">+910-000-0000</span>
                 <span class="px-2">Street name 123, Avanue abc</span>
             </div>
             <div class="col-md-2 text-md-right text-muted">

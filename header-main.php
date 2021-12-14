@@ -67,9 +67,9 @@
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
                     <?php if (isset($_SESSION['userlogin'])) { ?>
                     <div class="widget-header">
-                        <small class="title text-muted">Welcome to Jiomart</small>
+                        <small class="title text-muted">Welcome <?php echo ucwords($_SESSION['username']); ?> </small>
                         <div>
-                        <?php echo ucwords($_SESSION['username']); ?>   | <a href="logout.php">Logout</a> <span class="dark-transp"><span class="dark-transp">
+                        <a href="dashboard.php">Dashboard</a> <span class="dark-transp"> | <a href="logout.php">Logout</a> <span class="dark-transp"><span class="dark-transp">
                         </div>
                     </div>
 

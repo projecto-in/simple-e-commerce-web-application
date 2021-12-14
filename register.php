@@ -73,7 +73,7 @@
 			</form>
 		</article><!-- card-body.// -->
 	</div> <!-- card .// -->
-	<p class="text-center mt-4">Have an account? <a href="">Log In</a></p>
+	<p class="text-center mt-4">Have an account? <a href="signin.php">Log In</a></p>
 	<br><br>
 	<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
 

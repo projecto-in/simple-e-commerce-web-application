@@ -14,7 +14,7 @@ foreach ($_SESSION["cart"] as $keys => $values) {
     $price =  $values["price"];
     $total = ($values["quantity"] * $values["price"]);
     $categoryslug = $values["category_slug"];
-    $username = $_SESSION["userlogin"];
+    $username = $_SESSION["username"];
     $order_date = date('Y-m-d');
 
     $gtotal = $gtotal + $total;
