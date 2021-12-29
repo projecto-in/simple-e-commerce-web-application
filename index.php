@@ -54,7 +54,7 @@
     <div class="container">
         <section class="footer-bottom border-top row">
             <div class="col-md-2">
-                <p class="text-muted"> &copy 2021 Jiomart </p>
+                <p class="text-muted"> &copy 2021 Emart </p>
             </div>
             <div class="col-md-8 text-md-center">
                 <span class="px-2">info@jiomart.xyz</span>

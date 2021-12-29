@@ -4,7 +4,7 @@ session_start();
    define("server","localhost",true);
 	define("user","root",true);
 	define("password","",true);
-	define("database","jiomart",true);
+	define("database","emart",true);
 		$cid=mysqli_connect(server,user,password,database) or die("connection error");
         
 	

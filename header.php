@@ -6,7 +6,7 @@
 <meta http-equiv="cache-control" content="max-age=604800" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Jiomart | One of the Biggest Online Shopping Platform</title>
+<title>Emart | One of the Biggest Online Shopping Platform</title>
 
 <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
 
